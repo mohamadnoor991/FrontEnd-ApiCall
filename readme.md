@@ -48,4 +48,17 @@ npm run lint
 
 ### Ready to Go
 
+# Setup the backEnd server
+
+At this step you need to go to Backend directory.
+
+```
+./Frontend-ApiCall/Backend/
+```
+then you have to run this script in your terminal.
+
+```
+./gradlew --continuous bootRun
+```
+
 
