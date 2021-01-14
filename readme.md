@@ -55,10 +55,12 @@ At this step you need to go to Backend directory.
 ```
 ./Frontend-ApiCall/Backend/
 ```
-then you have to run this script in your terminal.
+then you have to run this script in your terminal. To have the api server running.
 
 ```
 ./gradlew --continuous bootRun
 ```
 
+### NOTE
 
+We try to deploy new api application on Clever which work perfectlly with our Fron-End application. but it seems we are not allow any more. every time we deploy it gives us faild. therefore, it will work with local server. 
