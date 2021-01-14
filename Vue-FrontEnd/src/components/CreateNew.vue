@@ -150,25 +150,7 @@ export default {
     },
     async createRoom(){
      this.okCreateRoom = this.okCreateRoom ? false :true;
-    },
-    async postMethod(e){
-      //  console.log(this.postwindow);
-       e.preventDefault();
-       await axios.post('http://localhost:8099/api/windows', this.postwindow)
-        .then(result =>{
-          console.warn(result)
-        
-        })
-     },
-     async postMethodRoom(e){
-      //  console.log(this.postwindow);
-       e.preventDefault();
-       await axios.post('http://localhost:8099/api/Rooms', this.postRoom)
-        .then(result =>{
-          console.warn(result)
-        
-        })
-     }
+    }
   }
 }
 </script>

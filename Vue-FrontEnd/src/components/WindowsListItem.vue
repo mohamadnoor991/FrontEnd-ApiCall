@@ -88,11 +88,7 @@ export default {
     toggleExpand() {
       this.isExpanded = !this.isExpanded;
     },
-    async switchWindow() {
-      let response = await axios.put(`http://localhost:8099/api/windows/${this.window.id}/switch`);
-      let updatedWindow = response.data;
-      this.$emit('window-updated', updatedWindow);
-    },
+  
     async deletWindow(id){
       await axios.delete('http://localhost:8099/api/windows/'+id);
     },
