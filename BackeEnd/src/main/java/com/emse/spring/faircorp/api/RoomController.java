@@ -44,7 +44,7 @@ public class RoomController {
     @PostMapping // (8)
     public RoomDto create(@RequestBody RoomDto dto) {
 //        Building building = buildingDao.getOne(dto.getBuilding().getId());
-        return new RoomDto(roomDao.save(new Room(dto.getLevel(), dto.getName())));
+        return new RoomDto(roomDao.save(new Room(dto.getLevel(), dto.getName(), dto.getTargetTemperature(), dto.getCurrentTemperature())));
     }
 
     @DeleteMapping(path = "/{room_id}")

@@ -32,10 +32,12 @@ public class Heater {
 
     }
 
-    public Heater(String name, Room room, Building building){
+    public Heater(String name, Room room , HeaterStatus heaterStatus, Long power){
         this.name = name;
         this.room = room;
-        this.building =building;
+        this.heaterStatus=heaterStatus;
+        this.power= power;
+       ;
     }
 
 

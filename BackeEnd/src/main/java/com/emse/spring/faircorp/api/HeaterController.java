@@ -35,9 +35,7 @@ public class HeaterController {
             this.windowDao = windowDao;
             this.heaterDao = heaterDao;
             this.buildingDao = buildingDao;
-
         }
-
         @GetMapping
         public List<HeaterDto> findAll() {
             return heaterDao.findAll().stream().map(HeaterDto::new).collect(Collectors.toList());  // (6)
@@ -46,37 +44,11 @@ public class HeaterController {
         public HeaterDto findById(@PathVariable Long heater_id) {
             return heaterDao.findById(heater_id).map(HeaterDto::new).orElse(null); // (7)
         }
-
-//    @PostMapping // (8)
-//    public HeaterDto create(@RequestBody HeaterDto dto) {
-//        Room room = roomDao.getOne(dto.getRoomId());
-//        Building building = buildingDao.getOne(dto.getBuildingId());
-//        Heater heater = null;
-//        heater = heaterDao.save(new Heater(dto.getName(), room, building));
-////        building = buildingDao.save(new Building(dto.getId(), dto.getName()));
-//        return  new HeaterDto(heater);
-//    }
-        @PostMapping // (8)
+        @PostMapping
         public HeaterDto create(@RequestBody HeaterDto dto) {
-//            Room room = roomDao.getOne(dto.getRoom().getId());
-//            Building building = buildingDao.getOne(dto.getId());
-//            return new HeaterDto(heaterDao.save(new Heater(dto.getName(),room, building)));
+            Room room = roomDao.getOne(dto.getRoomId());
+            return new HeaterDto(heaterDao.save(new Heater(dto.getName(),room, dto.getHeaterStatus(), dto.getPower())));
 
-// #################### this work for the second condition but the firt condition. ################
-            Room room = roomDao.getOne(dto.getRoom().getId());
-            Building building = buildingDao.getOne(dto.getId());
-            Heater heater = null;
-
-            if (dto.getId()==null) {
-
-                heater = heaterDao.save(new Heater(dto.getName(),room, building));
-            }
-            else{
-                heater = heaterDao.getOne(dto.getId());
-                heater.setPower(dto.getPower());
-            }
-            return new HeaterDto(heater);
-//##################################################################################################
 
         }
 
