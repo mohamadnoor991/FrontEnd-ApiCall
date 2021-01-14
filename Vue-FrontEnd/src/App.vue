@@ -1,19 +1,32 @@
 <template>
   <div id="app">
     <header>
-      <div class="title">{{title}}</div>
+      <div class="title"><h1>{{title}}</h1></div>
     </header>
-
-    <section class="main-content w-50 mx-auto">
-      <main-navigation></main-navigation>
-      <windows-list></windows-list>
-      <rooms-list></rooms-list>
+    
+    <section >
+      <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-sm-4 ">
+        <div class="sticky-top">
+            <p>ok</p>
+            <create-new></create-new>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <main-navigation></main-navigation>
+            <windows-list></windows-list>
+            <rooms-list></rooms-list>
+          </div>      
+        </div>
+      </div>
     </section>
      
   </div>
 </template>
 
 <script>
+import CreateNew from './components/CreateNew.vue';
 import MainNavigation from './components/MainNavigation.vue';
 import RoomsList from './components/RoomsList.vue';
 import WindowsList from './components/WindowsList.vue';
@@ -23,7 +36,8 @@ export default {
   components: {
     MainNavigation,
     WindowsList,
-    RoomsList
+    RoomsList,
+    CreateNew
   },
   data: function() {
     return {

@@ -1,8 +1,9 @@
 <template>
   <div class="window border border-secondary rounded p-2 mb-2" :class="{expanded: isExpanded}">
     <div class="top-row d-flex" @click="toggleExpand">
-      <div class="window-name fw-bold pe-3">{{window.name}}</div>
-      <div class="room-name text-muted">{{window.roomName}}</div>
+      <div class="window-name fw-bold pe-5">Window Name: {{window.name}}</div> 
+      <div class="room-name text-muted pe-5">Room Name: {{window.roomName}}</div>
+      <div class="room-name text-muted pe-5">Room Id: {{window.roomId}}</div>
 
       <div class="open-status ms-4" :class="{open: isWindowOpen, closed: !isWindowOpen}">
         <template v-if="isWindowOpen">
@@ -23,11 +24,11 @@
         <button type="button" class="btn btn-secondary me-2" @click="switchWindow">{{ isWindowOpen ? 'Close' : 'Open' }} window</button>
         <button type="button" class="btn btn-secondary me-2" @click="deletWindow(window.id)">Delete window</button>
         
-        <button type="button" class="btn btn-danger me-2" @click="createNew">Create window</button>
+        <!-- <button type="button" class="btn btn-danger me-2" @click="createNew">Create window</button> -->
       </div>
     </template>
     
-    <template v-if="okCreate">
+    <!-- <template v-if="okCreate">
           <br><form @submit="postMethod" method="POST">
             <div class="row">
               <div class="col">
@@ -48,10 +49,10 @@
             </div>
           </form>
           <br><h1>hi</h1>
-        </template>
+        </template> 
         <template v-else>
           <p hidden>no</p>
-        </template>
+        </template>-->
   
     
   </div>
@@ -69,15 +70,13 @@ export default {
   data: function() {
     return {
       isExpanded: false,
-      okCreate: false,
-      postwindow:{
-        
-        name: null,
-        windowStatus: null,
-        roomName:null,
-        roomId: null
-        
-      }
+      // okCreate: false,
+      // postwindow:{
+      //   name: null,
+      //   windowStatus: null,
+      //   roomName:null,
+      //   roomId: null
+      // }
     }
   }, 
   computed: {
@@ -98,21 +97,18 @@ export default {
       await axios.delete('http://localhost:8099/api/windows/'+id);
     },
     
-    async createNew(){
-     this.okCreate = this.okCreate ? false: true;
-    },
-     async postMethod(e){
-      //  console.log(this.postwindow);
-       e.preventDefault();
-       await axios.post('http://localhost:8099/api/windows', this.postwindow)
-        .then(result =>{
-          console.warn(result)
-        })
-     }
-    // ,
-    // async creatWindow(window){
-    //   axios.post('http://localhost:8090/api/windows/')
-    // }
+    // async createNew(){
+    //  this.okCreate = this.okCreate ? false: true;
+    // },
+    //  async postMethod(e){
+    //   //  console.log(this.postwindow);
+    //    e.preventDefault();
+    //    await axios.post('http://localhost:8099/api/windows', this.postwindow)
+    //     .then(result =>{
+    //       console.warn(result)
+        
+    //     })
+    //  }
   }
 }
 </script>
@@ -131,12 +127,10 @@ export default {
       top: -3px;
     }
   }
-
   &.closed {
     color: #dc3545;
   }
 }
-
 .window {
   .top-row {
     cursor: pointer;

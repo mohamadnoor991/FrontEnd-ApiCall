@@ -27,9 +27,9 @@ export default {
     }
   },
   created: async function() {
-    let response = await axios.get(`app-3b9359e6-ba40-4c1d-ac15-b4bf65af973d.cleverapps.io/api/rooms`);
-    let room = response.data;
-    this.room = room;
+    let response = await axios.get(`http://localhost:8099/api/Rooms`);
+    let rooms = response.data;
+    this.rooms = rooms;
   },
   methods: {
     updateWindow(newRoom) {
