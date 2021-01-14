@@ -34,11 +34,11 @@ export default {
     toggleExpand() {
       this.isExpanded = !this.isExpanded;
     },
-    async switchRoom() {
-      let response = await axios.put(`http://localhost:8099/api/Rooms//${this.room.id}/switch`);
-      let updatedRoom = response.data;
-      this.$emit('room-updated', updatedRoom);
-    },
+    // async switchRoom() {
+    //   let response = await axios.put(`http://localhost:8099/api/Rooms//${this.room.id}/switch`);
+    //   let updatedRoom = response.data;
+    //   this.$emit('room-updated', updatedRoom);
+    // },
      async deletRoom(id){
       axios.delete('http://localhost:8099/api/Rooms/'+id);
     }

@@ -4,7 +4,7 @@
       v-for="room in rooms"
       :room="room"
       :key="room.id"
-      @room-updated="updatRoom"
+     
     >
     </rooms-list-item>
   </div>
