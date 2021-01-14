@@ -28,22 +28,26 @@
     </template>
     
     <template v-if="okCreate">
-          <form>
+          <br><form @submit="postMethod" method="POST">
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" placeholder="First name">
+                <input type="text" class="form-control" placeholder="Windos name" v-model="postwindow.name">
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="Last name">
+                <input type="text" class="form-control" placeholder="Windows status"   v-model="postwindow.windowStatus">
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="First name">
+                <input type="text" class="form-control" placeholder="Room name"  v-model="postwindow.roomName">
               </div>
               <div class="col">
-                <input type="submit" class="form-control" placeholder="First name">
+                <input type="text" class="form-control" placeholder="Room ID"  v-model="postwindow.roomId">
+              </div>
+              <div class="col">
+                <input type="submit" class="form-control btn btn-success me-6" >
               </div>
             </div>
           </form>
+          <br><h1>hi</h1>
         </template>
         <template v-else>
           <p hidden>no</p>
@@ -55,6 +59,8 @@
 
 <script>
 import axios from 'axios';
+import vue from 'vue';
+
 import {API_HOST} from '../config';
 
 export default {
@@ -64,7 +70,13 @@ export default {
     return {
       isExpanded: false,
       okCreate: false,
-      posts:{
+      postwindow:{
+        
+        name: null,
+        windowStatus: null,
+        roomName:null,
+        roomId: null
+        
       }
     }
   }, 
@@ -89,8 +101,13 @@ export default {
     async createNew(){
      this.okCreate = this.okCreate ? false: true;
     },
-     async postMethod(){
-     
+     async postMethod(e){
+      //  console.log(this.postwindow);
+       e.preventDefault();
+       await axios.post('http://localhost:8099/api/windows', this.postwindow)
+        .then(result =>{
+          console.warn(result)
+        })
      }
     // ,
     // async creatWindow(window){
