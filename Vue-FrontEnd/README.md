@@ -7,9 +7,9 @@ It enables user to  `open,close,delete,create new`Rooms and windows in the build
 
 ## Project Members: 
 
->**Mohammed BADER**
+>**Mohamad BADER**
 >
->**Jihad MELADE**
+>**Jehad MELAD**
 >
 >**Rediet TADESSE**
 >
