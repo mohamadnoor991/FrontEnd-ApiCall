@@ -1,8 +1,34 @@
-# solution
+# The front end project by using Vuejs
 
-## Project setup
+## About the Project
+
+Our  project is application of **vue FrontEnd application** which is used to control the list of Windows and Rooms in a building.
+It enables user to  `open,close,delete,create new`Rooms and windows in the building.
+
+## Project Members: 
+
+>**Mohammed BADER**
+>
+>**Jihad MELADE**
+>
+>**Rediet TADESSE**
+>
+
+## How to get started with the Project
+
+### Pull the project from 
+Download the Application file from Git repository (Here is the link : [click-here](https://github.com/mohamadnoor991/FrontEnd-ApiCall/))
+
+### Running the BackEnd/Spring project first
 ```
-npm install
+* Go to the Backend folder 
+* Open this follder with your favourite IDE
+* Run the project
+```
+### Running front end
+```
+* Go to Vue-frontEnd Folder
+* npm install
 ```
 
 ### Compiles and hot-reloads for development
@@ -20,5 +46,6 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Ready to Go
+
+
