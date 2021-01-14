@@ -1,9 +1,9 @@
 <template>
   <div class="window border border-secondary rounded p-2 mb-2" :class="{expanded: isExpanded}">
     <div class="top-row d-flex" @click="toggleExpand">
-      <div class="window-name fw-bold pe-5">Window Name: {{window.name}}</div> 
-      <div class="room-name text-muted pe-5">Room Name: {{window.roomName}}</div>
-      <div class="room-name text-muted pe-5">Room Id: {{window.roomId}}</div>
+      <div class="window-name fw-bold pe-5"><strong>Name:</strong> {{window.name}}</div> 
+      <div class="room-name text-muted pe-5"><strong>Room Name:</strong> {{window.roomName}}</div>
+      <div class="room-name text-muted pe-5"><strong>Id:</strong> {{window.roomId}}</div>
 
       <div class="open-status ms-4" :class="{open: isWindowOpen, closed: !isWindowOpen}">
         <template v-if="isWindowOpen">
@@ -88,7 +88,11 @@ export default {
     toggleExpand() {
       this.isExpanded = !this.isExpanded;
     },
-  
+    async switchWindow() {
+      let response = await axios.put(`http://localhost:8099/api/windows/${this.window.id}/switch`);
+      let updatedWindow = response.data;
+      this.$emit('window-updated', updatedWindow);
+    },
     async deletWindow(id){
       await axios.delete('http://localhost:8099/api/windows/'+id);
     },

@@ -9,7 +9,6 @@
         <div class="row justify-content-center">
         <div class="col-sm-4 ">
         <div class="sticky-top">
-            <p>ok</p>
             <create-new></create-new>
             </div>
           </div>

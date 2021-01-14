@@ -1,11 +1,11 @@
 <template>
   <div class="window border border-secondary rounded p-2 mb-2" :class="{expanded: isExpanded}">
     <div class="top-row d-flex" @click="toggleExpand">
-      <div class="window-name fw-bold pe-3">{{room.name}}</div>
-      <div class="room-name text-muted pe-3">{{room.id}}</div> 
-     <div class="room-name text-muted pe-3">Temperature: {{room.currentTemperature}}</div>
-     <div class="room-name text-muted pe-3">targetTemperature: {{room.targetTemperature}}</div>
-     <div class="room-name text-muted">Floor:{{room.level}}</div> 
+      <div class="window-name fw-bold pe-4"><strong> Name :</strong> {{room.name}}</div>
+      <div class="room-name text-muted pe-5"><strong>ID :</strong> {{room.id}}</div> 
+     <div class="room-name text-muted pe-5"><strong>Temperature Now :</strong> {{room.currentTemperature || "n/a"}} ℃</div>
+     <div class="room-name text-muted pe-5"><strong>Target Temperature :</strong> {{room.targetTemperature || "n/a"}} ℃</div>
+     <div class="room-name text-muted"><strong>Floor :</strong>{{room.level}}</div> 
 
 
 

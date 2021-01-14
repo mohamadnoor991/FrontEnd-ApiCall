@@ -43,10 +43,10 @@
               </div>
            
           </form>
-          <br><h1>hi</h1>
+          <br><h1></h1>
         </template>
         <template v-else>
-          <p hidden>no</p>
+          <p hidden></p>
         </template>
         
         <button type="button" class="btn btn-danger me-2 m-3 p-3" @click="createRoom">Create New Room</button>
@@ -92,7 +92,7 @@
               </div>
            
           </form>
-          <br><h1>hi</h1>
+         
         </template>
         <template v-else>
           <p hidden>no</p>
@@ -150,7 +150,25 @@ export default {
     },
     async createRoom(){
      this.okCreateRoom = this.okCreateRoom ? false :true;
-    }
+    },
+    async postMethod(e){
+      //  console.log(this.postwindow);
+       e.preventDefault();
+       await axios.post('http://localhost:8099/api/windows', this.postwindow)
+        .then(result =>{
+          console.warn(result)
+        
+        })
+     },
+     async postMethodRoom(e){
+      //  console.log(this.postwindow);
+       e.preventDefault();
+       await axios.post('http://localhost:8099/api/Rooms', this.postRoom)
+        .then(result =>{
+          console.warn(result)
+        
+        })
+     }
   }
 }
 </script>
