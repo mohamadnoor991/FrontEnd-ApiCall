@@ -28,7 +28,7 @@ Download the Application file from Git repository (Here is the link : [click-her
 ### Running front end
 ```
 * Go to Vue-frontEnd Folder
-* npm install
+* npm  install
 ```
 
 ### Compiles and hot-reloads for development
