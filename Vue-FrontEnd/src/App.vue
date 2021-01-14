@@ -4,11 +4,13 @@
       <div class="title">{{title}}</div>
     </header>
 
-    <section class="main-content w-50 mx-auto">
+    <section class="main-content w-50 mx-auto" id="12">
       <main-navigation></main-navigation>
       <windows-list></windows-list>
-      <!-- <rooms-list></rooms-list> -->
+
     </section>
+
+
     <section class="main-content w-50 mx-auto">
       <main-navigation></main-navigation>
       <!-- <windows-list></windows-list> -->

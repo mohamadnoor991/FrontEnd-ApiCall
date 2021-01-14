@@ -2,7 +2,11 @@
   <div class="window border border-secondary rounded p-2 mb-2" :class="{expanded: isExpanded}">
     <div class="top-row d-flex" @click="toggleExpand">
       <div class="window-name fw-bold pe-3">{{room.name}}</div>
-      <div class="room-name text-muted">{{room.id}}</div>
+      <div class="room-name text-muted pe-3">{{room.id}}</div> 
+     <div class="room-name text-muted pe-3">Temperature: {{room.currentTemperature}}</div>
+     <div class="room-name text-muted pe-3">targetTemperature: {{room.targetTemperature}}</div>
+     <div class="room-name text-muted">Floor:{{room.level}}</div> 
+
 
 
       <div class="expand-button ms-auto">

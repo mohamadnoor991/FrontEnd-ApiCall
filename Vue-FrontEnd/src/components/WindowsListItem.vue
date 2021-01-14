@@ -2,7 +2,7 @@
   <div class="window border border-secondary rounded p-2 mb-2" :class="{expanded: isExpanded}">
     
     <div class="top-row d-flex" @click="toggleExpand">
-      <div class="window-name fw-bold pe-3">{{window.name}}</div>
+      <div class="window-name fw-bold pe-3">{{window.name}}</div> 
       <div class="room-name text-muted">{{window.roomName}}</div>
 
       <div class="open-status ms-4" :class="{open: isWindowOpen, closed: !isWindowOpen}">
@@ -29,20 +29,20 @@
       </div>
        <div>
 
-          <input type="text" 
+          <input type="text" class="add-serach-input"
         v-model="newWindow.idw" placeholder="id of window">
 
         <input type="text" class="add-serach-input"
-        v-model="newWindow.namew" >
+        v-model="newWindow.namew" placeholder="id of window">
 
         <input type="text" class="add-serach-input"
-        v-model="newWindow.windowStatusw">
+        v-model="newWindow.windowStatusw" placeholder="status of window">
 
         <input type="text" 
-        v-model="newWindow.roomNamew">
+        v-model="newWindow.roomNamew" placeholder="room name">
 
         <input type="text" class="add-serach-input"
-        v-model="newWindow.roomIdw" >
+        v-model="newWindow.roomIdw" placeholder="Roomid ">
        
         <!-- @keyup.enter="creatWindow" -->
 
@@ -71,7 +71,8 @@ export default {
     windowStatusw: "",
     roomNamew: "",
     roomIdw: ''},
-      //  roomName: '',windowStatus:'',
+    // newName:this.newWindow.namew,
+     
       isExpanded: false
     }
   }, 
@@ -93,8 +94,8 @@ export default {
       axios.delete('http://localhost:8099/api/windows/'+id);
     }
     ,
-     creatWindow(e){
-       e.preventDefault();
+     async creatWindow(){
+      //  e.preventDefault();
       axios.post('http://localhost:8099/api/windows/',
         this.newWindow
       
@@ -102,7 +103,8 @@ export default {
       .then((response) =>{
         console.log(response);
       });
-    }
+    },
+   
   }
 }
 </script>
