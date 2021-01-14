@@ -28,7 +28,7 @@ export default {
     }
   },
   created: async function() {
-    let response = await axios.get(`http://localhost:8090/api/windows`);
+    let response = await axios.get(`http://localhost:8099/api/windows`);
     let windows = response.data;
     this.windows = windows;
   },

@@ -25,27 +25,15 @@
       <div class="details d-flex">
         <button type="button" class="btn btn-secondary me-2" @click="switchWindow">{{ isWindowOpen ? 'Close' : 'Open' }} window</button>
         <button type="button" class="btn btn-secondary me-2" @click="deletWindow(window.id)">Delete window</button>
-        <button type="button" class="btn btn-secondary me-2" @click="creatWindow()">Create window</button>
+        <button type="button" class="btn btn-danger disabled" @click="creatWindow()">Create window</button>
       </div>
        <div>
-
-          <input type="text" 
-        v-model="newWindow.idw" placeholder="id of window">
-
-        <input type="text" class="add-serach-input"
-        v-model="newWindow.namew" >
-
-        <input type="text" class="add-serach-input"
-        v-model="newWindow.windowStatusw">
-
         <input type="text" 
-        v-model="newWindow.roomNamew">
-
+        v-model="namew" @keyup.enter="creatWindow">
+        <!-- <input type="text" class="add-serach-input"
+        v-model="windowStatus" @keyup.enter="creatWindow">
         <input type="text" class="add-serach-input"
-        v-model="newWindow.roomIdw" >
-       
-        <!-- @keyup.enter="creatWindow" -->
-
+        v-model="roomName" @keyup.enter="creatWindow">  -->
       </div>
 
     </template>
@@ -65,12 +53,7 @@ export default {
  
   data: function() {
     return {
-      newWindow: {
-       idw: '',
-    namew: " ",
-    windowStatusw: "",
-    roomNamew: "",
-    roomIdw: ''},
+      namew: '',
       //  roomName: '',windowStatus:'',
       isExpanded: false
     }
@@ -93,12 +76,13 @@ export default {
       axios.delete('http://localhost:8099/api/windows/'+id);
     }
     ,
-     creatWindow(e){
-       e.preventDefault();
-      axios.post('http://localhost:8099/api/windows/',
-        this.newWindow
-      
-      )
+     creatWindow(){
+      axios.post('http://localhost:8099/api/windows/',{
+        name: this.namew
+        // ,
+        // roomName:this.roomName,
+        // windowStatus:this.windowStatus
+      })
       .then((response) =>{
         console.log(response);
       });

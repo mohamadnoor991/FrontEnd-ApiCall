@@ -2,7 +2,7 @@
   <div class="window border border-secondary rounded p-2 mb-2" :class="{expanded: isExpanded}">
     <div class="top-row d-flex" @click="toggleExpand">
       <div class="window-name fw-bold pe-3">{{room.name}}</div>
-      <div class="room-name text-muted">{{room.name}}</div>
+      <div class="room-name text-muted">{{room.id}}</div>
 
 
       <div class="expand-button ms-auto">
@@ -12,7 +12,7 @@
     <template v-if="isExpanded">
       <hr/>
       <div class="details d-flex">
-        <button type="button" class="btn btn-danger disabled">Delete room</button>
+        <button type="button" class="btn btn-secondary me-2" @click="deletRoom(room.id)">Delete Room</button>
       </div>
     </template>
   </div>
@@ -35,9 +35,12 @@ export default {
       this.isExpanded = !this.isExpanded;
     },
     async switchRoom() {
-      let response = await axios.put(`app-3b9359e6-ba40-4c1d-ac15-b4bf65af973d.cleverapps.io/api/windows/${this.room.id}/switch`);
+      let response = await axios.put(`http://localhost:8099/api/Rooms//${this.room.id}/switch`);
       let updatedRoom = response.data;
       this.$emit('room-updated', updatedRoom);
+    },
+     async deletRoom(id){
+      axios.delete('http://localhost:8099/api/Rooms/'+id);
     }
   }
 }
