@@ -50,12 +50,12 @@ export default {
       this.isExpanded = !this.isExpanded;
     },
     async switchWindow() {
-      let response = await axios.put(`http://localhost:8090/api/windows/${this.window.id}/switch`);
+      let response = await axios.put(`http://localhost:8099/api/windows/${this.window.id}/switch`);
       let updatedWindow = response.data;
       this.$emit('window-updated', updatedWindow);
     },
     async deletWindow(id){
-      axios.delete('http://localhost:8090/api/windows/'+id);
+      await axios.delete('http://localhost:8099/api/windows/'+id);
     }
     // ,
     // async creatWindow(window){
