@@ -22,9 +22,34 @@
       <div class="details d-flex">
         <button type="button" class="btn btn-secondary me-2" @click="switchWindow">{{ isWindowOpen ? 'Close' : 'Open' }} window</button>
         <button type="button" class="btn btn-secondary me-2" @click="deletWindow(window.id)">Delete window</button>
-        <button type="button" class="btn btn-danger disabled">Create window</button>
+        
+        <button type="button" class="btn btn-danger me-2" @click="createNew">Create window</button>
       </div>
     </template>
+    
+    <template v-if="okCreate">
+          <form>
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="First name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Last name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="First name">
+              </div>
+              <div class="col">
+                <input type="submit" class="form-control" placeholder="First name">
+              </div>
+            </div>
+          </form>
+        </template>
+        <template v-else>
+          <p hidden>no</p>
+        </template>
+  
+    
   </div>
 </template>
 
@@ -37,7 +62,10 @@ export default {
   props: ['window'],
   data: function() {
     return {
-      isExpanded: false
+      isExpanded: false,
+      okCreate: false,
+      posts:{
+      }
     }
   }, 
   computed: {
@@ -56,7 +84,14 @@ export default {
     },
     async deletWindow(id){
       await axios.delete('http://localhost:8099/api/windows/'+id);
-    }
+    },
+    
+    async createNew(){
+     this.okCreate = this.okCreate ? false: true;
+    },
+     async postMethod(){
+     
+     }
     // ,
     // async creatWindow(window){
     //   axios.post('http://localhost:8090/api/windows/')
